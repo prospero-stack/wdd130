@@ -1,4 +1,15 @@
-* {
+:root {
+    --primary-color: #003049;
+    --secondary-color: #eaf4f4;
+    --accent-color: #ffffff;
+    --text-color: #222222;
+    --overlay-color: rgba(0, 0, 0, 0.55);
+    --article-color: rgba(255, 255, 255, 0.88);
+}
+
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,16 +17,19 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    color: #222;
+    color: var(--text-color);
+    background: var(--accent-color);
     line-height: 1.6;
 }
 
+/* ---------------- HEADER ---------------- */
+
 header {
     display: grid;
-    grid-template-columns: 150px auto;
+    grid-template-columns: 160px 1fr;
     align-items: center;
-    padding: 20px;
-    background: #eaf4f4;
+    background: var(--secondary-color);
+    padding: 20px 40px;
 }
 
 header img {
@@ -24,16 +38,23 @@ header img {
 
 nav ul {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
 }
 
 nav a {
     text-decoration: none;
-    color: #003049;
+    color: var(--primary-color);
     font-weight: bold;
+    font-size: 1.1rem;
 }
+
+nav a:hover {
+    color: #0b6e4f;
+}
+
+/* ---------------- HERO ---------------- */
 
 .hero {
     position: relative;
@@ -42,48 +63,66 @@ nav a {
 .hero img {
     display: block;
     width: 100%;
+    height: auto;
 }
 
 .hero h1 {
     position: absolute;
-    top: 20px;
+    top: 25px;
     width: 100%;
     text-align: center;
     color: white;
-    background: rgba(0, 0, 0, .5);
+    background: var(--overlay-color);
     padding: 15px;
+    letter-spacing: 2px;
 }
 
-article {
+.hero article {
     position: absolute;
-    bottom: 40px;
-    left: 10%;
-    right: 10%;
-    background: rgba(255, 255, 255, .85);
+    left: 40px;
+    right: 40px;
+    bottom: 30px;
+    background: var(--article-color);
     padding: 20px;
 }
 
-article img {
+.hero article img {
     float: right;
     width: 180px;
     margin-left: 20px;
+    border-radius: 6px;
 }
 
+/* ---------------- SECTIONS ---------------- */
+
 section {
-    padding: 40px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
 }
 
 section h2 {
+    color: var(--primary-color);
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
+
+section p {
+    text-align: justify;
+}
+
+/* ---------------- FOOTER ---------------- */
 
 footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #eaf4f4;
-    padding: 20px;
+    background: var(--secondary-color);
+    padding: 20px 40px;
+}
+
+footer p {
+    color: var(--primary-color);
 }
 
 .socialmedia {
@@ -91,6 +130,11 @@ footer {
     gap: 15px;
 }
 
+.socialmedia a {
+    text-decoration: none;
+}
+
 .socialmedia img {
     width: 35px;
+    height: auto;
 }
